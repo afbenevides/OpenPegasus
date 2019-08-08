@@ -161,7 +161,7 @@ down
 speed = 128 x 3 : 0.0545 inch
 
 1 inch = 128*3/0.055 = 6981,8 steps
-1 mm   = 128*3/0.055 /25,4 = 274.87 steps
+1 mm   = 128*3/0.055 /25,4 = 274.87 steps  WTF???
 
 move 1000 steps with zup modified for 1000:   0.370 to 0.568  = 0.198 in
 move 1000 steps with zup modified for 1000:   0.568 to 0.766  = 0.198 in
@@ -174,4 +174,96 @@ move 1000 steps with zup modified for 1000:   0.831 to 0.929  = 0.198 in
 hit max of dial
 
 0.198in in most of tests for 1000 steps: z.scalein = 5050
-1000 / valeur = 198
+
+z.scalemm = 199 will keep that for now....
+
+changed build plate with new plate ( only had 0.125 in thick... but we will see)
+
+did laser calibration, looks pretty good
+
+bed leveling done
+
+print test!
+
+==================================
+laser.repeat = 2
+laser.firstlayers = 6
+laser.firstlayersrepeat = 6
+z.liftdistance = 3000 
+layer thickness 0.3
+
+Result: No Stick to the build plate
+
+
+--> increase repeats and first layers
+
+==================================
+laser.repeat = 2
+laser.firstlayers = 8
+laser.firstlayersrepeat = 8
+z.liftdistance = 3000 
+layer thickness 0.3
+
+Result: No Stick to the build plate
+
+
+--> increase repeats
+
+==================================
+laser.repeat = 2
+laser.firstlayers = 8
+laser.firstlayersrepeat = 16
+z.liftdistance = 3000 
+layer thickness 0.3
+
+Result: No Stick to the build plate
+
+
+--> increase repeats
+
+==================================
+laser.repeat = 2
+laser.firstlayers = 8
+laser.firstlayersrepeat = 24
+z.liftdistance = 3000 
+layer thickness 0.3
+
+Result: No Stick to the build plate
+measured thickness : 1,5mm  /8  = 0.1875
+
+--> increase repeats
+
+==================================
+laser.repeat = 2
+laser.firstlayers = 8
+laser.firstlayersrepeat = 48
+z.liftdistance = 3000 
+layer thickness 0.3
+
+Result: No Stick to the build plate
+measured thickness 1,9 : /8  = 0.2375
+
+--> change layer thickness
+
+
+==================================
+laser.repeat = 2
+laser.firstlayers = 8
+laser.firstlayersrepeat = 48
+z.liftdistance = 3000 
+layer thickness 0.1
+
+Result: No Stick to the build plate
+
+--> leveling compensation with resin for front 
+
+==================================
+laser.repeat = 2
+laser.firstlayers = 8
+laser.firstlayersrepeat = 48
+z.liftdistance = 3000 
+layer thickness 0.1
+
+Result: No Stick to the build plate
+
+--> leveling compensation with resin : try to bring back closer.... redoo leveling tomorrow!

@@ -267,3 +267,50 @@ layer thickness 0.1
 Result: No Stick to the build plate
 
 --> leveling compensation with resin : try to bring back closer.... redoo leveling tomorrow!
+
+==================================
+laser.repeat = 2
+laser.firstlayers = 8
+laser.firstlayersrepeat = 48
+z.liftdistance = 3000 
+layer thickness 0.1
+
+Result: No Stick to the build plate
+
+--> with doobie ini files
+
+==================================
+laser.repeat = 2
+laser.firstlayers = 8
+laser.firstlayersrepeat = 48
+z.liftdistance = 3000 
+layer thickness 0.1
+Doobie Ini file 3
+
+Result: No Stick to the build plate
+
+--> with doobie ini files 50
+
+==================================
+laser.repeat = 2
+laser.firstlayers = 8
+laser.firstlayersrepeat = 48
+z.liftdistance = 3000 
+layer thickness 0.1
+Doobie Ini file 50
+
+Result: No Stick to the build plate
+
+--> with doobie ini files 50 and try corners instead of middle
+
+==================================
+laser.repeat = 2
+laser.firstlayers = 8
+laser.firstlayersrepeat = 48
+z.liftdistance = 3000 
+layer thickness 0.1
+Doobie Ini file 3
+
+Result: No Stick to the build plate
+
+--> 

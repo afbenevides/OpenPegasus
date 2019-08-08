@@ -1,60 +1,79 @@
-; comment
-debug.value       = 0x000
-;debug.value       = 0xFFFF
-;debug.value       = 0x0C100
-;disable Z = 0x4000
-;debug.value       = 0x40ef
-;disable galvo
-;debug.value       = 0x8020
-;disable Z+Galvo
-;debug.value       = 0xc0ef
-;debug.value       = 0xffff
-laser.pattern     = 0xffff
-laser.repeat      = 0x1
-
-laser.spotsize    = 80
-laser.usehypot    = 1 ; required don't turn; only for testing
-
-; repeat the first X layers
-; number of layers to repeat
+debug.value = 0x0
+laser.pattern = 0xffff
+laser.repeat = 2
 laser.firstlayers = 8
-; number of times to repeat first layers
-laser.firstlayersrepeat = 8
-;laser.firstlayers = 1
-;laser.firstlayersrepeat = 1
-
-;; old code section start
-; This calibrates the rought X/Y; this is for the short-term.  We need a matrix transormation to get it better.
-x.scalemm         = 340
-y.scalemm         = 340
-; offset to where we can start printing; in ticks, divide by scale to determine how many MM from edge
-x.offset          = 2750
-y.offset          = 2750
-;; old code section end
-; estimated zaxis
-z.scalemm         = 200
-
-; How far to lift after a layer completes (in ticks; divide by scalemm=how far in MM)
-z.liftdistance        = 2000
-; Pause after layer is printed before lifting
-z.liftpause       = 500000 ; 1 second(s)
-z.liftsteps       = 1
-; Pause after lift before lowering for next layer
-z.lowerpause      = 500000 ; .5 second(s)
-; Pause after lowering before starting print
-z.printpause      = 500000 ; 1 second(s)
-z.donelift        = 1600    ; lift after print is done
-z.maxlift         = 35000   ; limit to move up
-
-; z axis motion tuning
-z.initialacd      = 6000 ; initial stepper motor acceleration delay
-z.accconst        = 270  ; ratio for slope; lower const means faster acceleration
-
-; Indicates how far below limit switch your vat is located.  Don't make it too low or you'll smash your build plate into the vat.
-; GUI has a calibrate Z that can be used to find the depth; doesn't save to file
-z.belowlimit      = 1080
-
-; new calibration method.
-general.matrix = 1
-`include galvo.txt
-
+laser.firstlayersrepeat = 48
+laser.spotsize = 80
+laser.usehypot = 1
+laser.float = 1
+x.scalemm = 340
+x.scalein = 6666
+x.offset = 2750
+y.scalemm = 340
+y.scalein = 6666
+y.offset = 2750
+z.liftinitial = 1000
+z.liftdistance = 3000
+z.liftpause = 500000
+z.liftsteps = 1
+z.lowerpause = 500000
+z.printpause = 500000
+z.scalemm = 199
+z.scalein = 10000
+z.belowlimit = 1080
+z.donelift = 1600
+z.maxlift = 35000
+z.initialacd = 6000
+z.accconst = 270
+z.time = 4
+general.matrixcalib = 1
+x.point0 =  7048
+y.point0 =  5072
+x.point1 = 20292
+y.point1 =  5200
+x.point2 = 34688
+y.point2 =  5328
+x.point3 = 49468
+y.point3 =  5200
+x.point4 = 62392
+y.point4 =  5328
+x.point5 =  5960
+y.point5 = 18576
+x.point6 = 19524
+y.point6 = 18832
+x.point7 = 34560
+y.point7 = 19088
+x.point8 = 49852
+y.point8 = 19088
+x.point9 = 63096
+y.point9 = 19344
+x.point10 =  5640
+y.point10 = 33744
+x.point11 = 19300
+y.point11 = 34000
+x.point12 = 34304
+y.point12 = 34000
+x.point13 = 49596
+y.point13 = 34320
+x.point14 = 63032
+y.point14 = 34512
+x.point15 =  6152
+y.point15 = 48144
+x.point16 = 19460
+y.point16 = 48400
+x.point17 = 34112
+y.point17 = 48656
+x.point18 = 49084
+y.point18 = 48784
+x.point19 = 62200
+y.point19 = 48976
+x.point20 =  7368
+y.point20 = 60624
+x.point21 = 20036
+y.point21 = 60944
+x.point22 = 33920
+y.point22 = 61200
+x.point23 = 48124
+y.point23 = 61456
+x.point24 = 60760
+y.point24 = 61616

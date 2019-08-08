@@ -1,0 +1,177 @@
+2019-08-07: TESTING layer repeats to make it stick
+
+File: maker rook
+Slic3r: 
+layer thickness: 0.1 mm
+first_layer_thisckness: 0.1mm
+extruder width: 0.08 mm
+
+TEST1:
+(Build plate not yet replaced so it is not peprfectly straight)_
+
+With working curve:
+with light intensity to 90
+
+
+laser.repeat = 1
+laser.firstlayers = 4
+laser.firstlayersrepeat = 2
+
+Result:
+
+No bonding to build plate
+
+
+
+==================================
+laser.repeat = 1
+laser.firstlayers = 4
+laser.firstlayersrepeat = 4
+
+Result:
+
+No bonding to build plate
+
+==================================
+laser.repeat = 1
+laser.firstlayers = 4
+laser.firstlayersrepeat = 8
+
+Result:
+
+Bonding to build plate, but not printing other layers correctly
+
+==================================
+laser.repeat = 2
+laser.firstlayers = 4
+laser.firstlayersrepeat = 8
+
+Result:
+
+Bonding to build plate, printing only right/back side of rook ( what was printing had a pretty good quality)
+NOTE: Added resing here
+
+==================================
+laser.repeat = 3
+laser.firstlayers = 4
+laser.firstlayersrepeat = 8
+
+Result:
+
+Bonding to build plate and bonding to pdms so like if there was no lift...
+NOTE: problem forgot to screw back the build plate screw
+
+==================================
+laser.repeat = 3
+laser.firstlayers = 4
+laser.firstlayersrepeat = 8
+
+Result:
+
+Bonding to build plate and bonding to pdms so like if there was no lift...
+
+-->try coming back to partial working
+
+==================================
+laser.repeat = 2
+laser.firstlayers = 4
+laser.firstlayersrepeat = 8
+
+Result:
+
+Bonding to build plate and bonding to pdms so like if there was no lift...
+
+-->inscrease lift in beetween layers
+
+
+==================================
+laser.repeat = 2
+laser.firstlayers = 4
+laser.firstlayersrepeat = 8
+z.liftdistance = 3000 ( from 2000 so according to scale 3 cm instead of 2 cm
+
+
+Result:
+
+Bonding to build plate, some layers on the build plate but stopped print at 75 on 356 layers, because no more bonding of later layers... all on pdms
+
+-->try with 3 repeats?
+
+==================================
+laser.repeat = 3
+laser.firstlayers = 4
+laser.firstlayersrepeat = 8
+z.liftdistance = 3000 ( from 2000 so according to scale 3 cm instead of 2 cm
+
+
+Result:
+
+Bonding to build plate, some layers on the build plate but stopped print at 50 on 356 layers, because no more bonding of later layers... all on pdms
+
+-->back to working conditions for (0.3mm layers) 
+
+==================================
+laser.repeat = 1
+laser.firstlayers = 8
+laser.firstlayersrepeat = 8
+z.liftdistance = 3000 ( from 2000 so according to scale 3 cm instead of 2 cm
+
+
+Result: No Stick to the build plate??? WTF
+
+
+-->GO EAT AND continue later....!
+
+==================================
+laser.repeat = 1
+laser.firstlayers = 8
+laser.firstlayersrepeat = 8
+z.liftdistance = 3000 ( from 2000 so according to scale 3 cm instead of 2 cm
+
+
+Result: No Stick to the build plate??? WTF
+
+
+-->GO EAT AND continue later....!
+
+==================================
+z calibration it is to change my ideas!
+
+mounted mitutoyo dial indicator for z axis calib
+
+launched z calib and set u 3 times
+up
+speed = 16 x 3 : 0.007 inch
+down
+speed = 16 x 3 : 0.007 inch
+
+up
+speed = 32x 3 : 0.014 inch
+down
+speed = 32 x 3 : 0.014 inch
+
+up
+speed = 64x 3 : 0.027 inch
+down
+speed = 64 x 3 : 0.027 inch
+
+up
+speed = 128x 3 : 0.055 inch
+down
+speed = 128 x 3 : 0.0545 inch
+
+1 inch = 128*3/0.055 = 6981,8 steps
+1 mm   = 128*3/0.055 /25,4 = 274.87 steps
+
+move 1000 steps with zup modified for 1000:   0.370 to 0.568  = 0.198 in
+move 1000 steps with zup modified for 1000:   0.568 to 0.766  = 0.198 in
+
+test2 From down switch
+move 1000 steps with zup modified for 1000:   0.265 to 0.436  = 0.171 in
+move 1000 steps with zup modified for 1000:   0.436 to 0.634  = 0.198 in
+move 1000 steps with zup modified for 1000:   0.634 to 0.831  = 0.197 in
+move 1000 steps with zup modified for 1000:   0.831 to 0.929  = 0.198 in
+hit max of dial
+
+0.198in in most of tests for 1000 steps: z.scalein = 5050
+1000 / valeur = 198

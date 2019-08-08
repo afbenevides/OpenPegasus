@@ -310,7 +310,9 @@ laser.firstlayersrepeat = 48
 z.liftdistance = 3000 
 layer thickness 0.1
 Doobie Ini file 3
+print files on each corners:
 
-Result: No Stick to the build plate
 
---> 
+Result: stick on 4 corners, no stick on center....
+
+--> build plate is no straight and gap is higher in center or vat has a lower center...

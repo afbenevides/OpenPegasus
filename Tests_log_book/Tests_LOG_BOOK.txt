@@ -284,8 +284,7 @@ laser.repeat = 2
 laser.firstlayers = 8
 laser.firstlayersrepeat = 48
 z.liftdistance = 3000 
-layer thickness 0.1
-Doobie Ini file 3
+Doobie Ini file : 1st layer 0.35  others 0.3
 
 Result: No Stick to the build plate
 
@@ -296,8 +295,8 @@ laser.repeat = 2
 laser.firstlayers = 8
 laser.firstlayersrepeat = 48
 z.liftdistance = 3000 
-layer thickness 0.1
-Doobie Ini file 50
+Doobie Ini file 50 : 1st layer 0.35  others 0.3
+
 
 Result: No Stick to the build plate
 
@@ -308,11 +307,417 @@ laser.repeat = 2
 laser.firstlayers = 8
 laser.firstlayersrepeat = 48
 z.liftdistance = 3000 
-layer thickness 0.1
-Doobie Ini file 3
-print files on each corners:
+Doobie Ini file 3 : 1st layer 0.35  others 0.3
+belowlimit: 1600 
+
+print files on each corners: 
 
 
 Result: stick on 4 corners, no stick on center....
 
---> build plate is no straight and gap is higher in center or vat has a lower center...
+--> build plate is not straight and gap is higher in center or vat has a lower center...
+
+
+==================================
+Analysing this morning:
+
+last print 5 rook (4 corners + middle)
+
+if plate and vat leveled: 4 corners should be same thickness
+
+rearleft: 0.96mm
+rearright: 0.95mm
+frontlft: 0.45mm
+front right: 0.45mm
+
+middle 1.10mm
+
+--> will try at least leveling 4 corners same height and remeasure see if it corrects corner levels
+for middle will try to increase cure time to 64 repeats.... we will see...
+
+It also means first layer cures were at least lower than :
+
+front: lower than 0.45
+rear lower than 0.95
+middle lower than 1.1
+
+stopped at around 8 layers.... 0.45/8 or 0.95/8 or 1.1/8 ... does something that does not make sense
+maybee z level bottom below limit switch is not good yet
+
+==================================
+
+laser.repeat = 2
+laser.firstlayers = 8
+laser.firstlayersrepeat = 64
+z.liftdistance = 3000 
+Doobie Ini file 3 1st layer 0.35  others 0.3
+print files on each corners:
+belowlimit: 1600 
+zliftdistance: 3000
+
+
+
+stopped: layer 15
+
+Result: 
+
+rearleft: 0.614mm
+rearright: 0.742mm
+frontlft: 0.0.572mm
+front right: 0.518mm
+
+middle 1.094mm
+
+--> retest correction on 3 corners
+
+also since middle is same thickness and on pdms  maybe this is really the max penetration that laser can do in resin for 
+
+==================================
+
+laser.repeat = 2
+laser.firstlayers = 8
+laser.firstlayersrepeat = 64
+z.liftdistance = 3000 
+Doobie Ini file 3 1st layer layer 0.35  others 0.3
+print files on each corners:
+belowlimit: 1600 
+zliftdistance: 3000
+
+
+
+stopped: layer 9
+
+Result: 
+
+rearleft: 0.614mm
+rearright: 0.742mm
+frontlft: 0.0.572mm
+front right: 0.518mm
+
+middle 1.086mm
+
+--> no real difference so try lower thickness to 100um see if difference (on first layer??)
+
+==================================
+
+laser.repeat = 2
+laser.firstlayers = 8
+laser.firstlayersrepeat = 64
+z.liftdistance = 3000 
+Doobie Ini file 3 1st layer 0.1mm
+print files on each corners:
+belowlimit: 1600 
+zliftdistance: 3000
+
+
+
+stopped: layer 10
+
+Result: 
+
+rearleft: 0.610mm
+rearright: 0.723mm
+frontlft: 0.0.577mm
+front right: 0.580mm
+
+middle 1.154mm  to build plate yeah!
+
+-->same sizes but lowering1st layer height 0.35 to 0.1 made it stick...
+
+try to lower below limit to see if plate pushes vat so it bends an create a lower middle
+
+
+==================================
+
+laser.repeat = 2
+laser.firstlayers = 8
+laser.firstlayersrepeat = 64
+z.liftdistance = 3000 
+Doobie Ini file 3 1st layer 0.1mm
+print files on each corners:
+belowlimit: 1200
+zliftdistance: 3000
+
+
+stopped: layer 9
+
+Result: 
+
+rearleft: 0.651mm
+rearright: 0.830mm
+frontlft: 0.0.676mm
+front right: 0.573mm
+
+middle 1.124mm  to build plate yeah!
+
+-->go down on belowlimit to 800
+
+
+==================================
+
+laser.repeat = 2
+laser.firstlayers = 8
+laser.firstlayersrepeat = 64
+z.liftdistance = 3000 
+Doobie Ini file 3 1st layer 0.1mm
+print files on each corners:
+belowlimit: 800
+zliftdistance: 3000
+
+
+stopped: layer 9
+
+Result: 
+
+rearleft: 1.314mm
+rearright: 1.293mm
+frontlft: 1.0202mm
+front right: 0.962mm
+
+middle 1.198mm  to build plate yeah!
+
+-->on layer 3 or 4 plate would not come off
+
+middle is in beetween front and rear. modify gap in front to match rear gap
+
+==================================
+
+laser.repeat = 2
+laser.firstlayers = 8
+laser.firstlayersrepeat = 64
+z.liftdistance = 3000 
+Doobie Ini file 3 1st layer 0.1mm
+print files on each corners:
+belowlimit: 800
+zliftdistance: 3000
+
+stopped: layer pendant 4
+
+Result: 
+
+rearleft: 0.738 mm
+rearright: 0.768 mm
+frontlft: 0.660 mm
+front right: 0.627 mm
+
+middle 0.945mm  to build plate yeah!
+
+--> increase first retract to 5000 and below limit to 860 (0.3mm)
+
+
+==================================
+
+laser.repeat = 2
+laser.firstlayers = 8
+laser.firstlayersrepeat = 64
+z.liftdistance = 3000 
+Doobie Ini file 3 1st layer 0.1mm
+print files on each corners:
+belowlimit: 860
+zliftdistance: 5000
+
+stopped: layer pendant 4
+
+Result: 
+
+rearleft: 0.771 mm
+rearright: 0.886 mm
+frontlft: 0.627 mm
+front right: 0.687 mm
+
+middle 0.879mm  to build plate yeah!
+
+--> no difference can live with that!
+
+try minimize first layer repeats begin by 8
+
+
+==================================
+
+laser.repeat = 2
+laser.firstlayers = 8
+laser.firstlayersrepeat = 8
+z.liftdistance = 5000 
+Doobie Ini file 3 1st layer 0.1mm
+print files on each corners:
+belowlimit: 800
+
+stopped: layer pendant 
+
+Result: 
+
+rearleft: 0.817 mm
+rearright: 0.719 mm
+frontlft: 0.697 mm
+front right: 0.617 mm
+
+middle 0.774mm 
+
+-->pdms   try 16
+
+==================================
+
+laser.repeat = 2
+laser.firstlayers = 8
+laser.firstlayersrepeat = 16
+z.liftdistance = 5000 
+Doobie Ini file 3 1st layer 0.1mm
+print files on each corners:
+belowlimit: 800
+
+stopped: layer pendant 13
+
+Result: 
+
+rearleft: 1,033 mm
+rearright: 0,943 mm
+frontlft: 0.903 mm
+front right: 0.883 mm
+
+middle 0.936mm  
+
+-->pdms  try 32
+
+==================================
+
+laser.repeat = 2
+laser.firstlayers = 8
+laser.firstlayersrepeat = 32
+z.liftdistance = 5000 
+Doobie Ini file 3 1st layer 0.1mm
+print files on each corners:
+belowlimit: 800
+
+stopped: layer pendant 4
+
+Result: 
+
+rearleft: 1,031 mm
+rearright: 0.968 mm
+frontlft: 0.946 mm
+front right: 0.913 mm
+
+middle 1.054mm  to build plate yeah!
+
+--> complete print test
+
+==================================
+
+laser.repeat = 2
+laser.firstlayers = 4
+laser.firstlayersrepeat = 32
+z.liftdistance = 5000 
+Doobie Ini file 3 1st layer 0.1mm
+print files on each corners:
+belowlimit: 800
+
+stopped: layer pendant 
+
+Result: 
+
+rearleft: 1.031 mm
+rearright: 0.976 mm
+frontlft: 0.947 mm
+front right: 1.024 mm
+
+middle 1.036 mm  
+
+--> thickness on build plate + rest in pdms
+
+try with 8 repeat on normal layers
+
+
+==================================
+
+laser.repeat = 8
+laser.firstlayers = 4
+laser.firstlayersrepeat = 8
+z.liftdistance = 5000 
+Doobie Ini file 3 1st layer 0.1mm
+print files on each corners:
+belowlimit: 800
+
+stopped: layer pendant 
+
+Result: 
+
+rearleft: 1.031 mm
+rearright: 0.976 mm
+frontlft: 0.947 mm
+front right: 1.024 mm
+
+middle 1.036 mm  
+
+-->
+
+try with xxx  repeat on normal layers
+
+
+
+
+CREATE a LEVELING TEST PRINT WOULD BE VERY GOOD:
+
+Something like printing a ruler on each corners with marks we can easily identify:
+
+
+1-FLATNESS: -Verify build head is with very good flatness
+
+2-SCREW scalemm parameter: verify with zcal an a microns rotary gauge (find real name)
+
+3-setup calib file:
+here is a base file that works for me:
+
+
+4-FIRST LEVEL: Put a piece of papper in the vat(the vat is no easy to slip on, so the paper barrier makes it easier to slip another paperthingap beetween the build plate and vat paper)
+-home the plate and adjust below home paremeter so it is only possible to pass a paper sheet(paperthingap) in beetween the paper sheet(on the vat) and the build plat.
+
+5-FINE TUNE LEVEL:Print fine tuning leveling model
+
+6 - if nothing sticks to build plate and something appears on PDSMS means (not enough cure or too big gap) 
+
+to raise cure: raise repeat first layer parameter times 2  
+to lower gap adjust leveling
+
+( back to step 5)
+
+7- if one or more corners are missing: adjustments of leveling : close gap in corner that is missing a print
+
+( back to step 5)
+
+8- if all corners appear: measure thickness and adjust leveling so that all corners have same height
+
+( back to step 5)
+
+9- if all corners appear and have same height but middle still not there: try adjusting by reducing below limit parameter to see if build plate is pushing vat down:
+
+( back to step 5)
+
+10- if all area are as eaven as it can be: try minimyzing first layers repeats
+
+( back to step 5)
+
+11-if minimal first layer repeat achieve adjust layer repeat to minimyze
+keep in mind that layerrepeat multiplies first layer repeats so if you had:
+
+laser.repeat = 2
+laser.firstlayersrepeat = 32
+
+and want to change to 
+laser.repeat = 8
+
+than 
+
+laser.firstlayersrepeat = 8
+
+so now:
+
+laser.repeat = 8
+laser.firstlayersrepeat = 8
+
+so normal layers are 4 times longer, and firstlayer is the same time
+
+
+12- enjoy!
+
+
+To be continued....
